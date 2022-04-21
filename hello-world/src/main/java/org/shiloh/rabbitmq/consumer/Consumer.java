@@ -1,7 +1,6 @@
 package org.shiloh.rabbitmq.consumer;
 
 import com.rabbitmq.client.*;
-import org.shiloh.rabbitmq.constant.RabbitMqConstants;
 
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
@@ -9,7 +8,6 @@ import java.util.concurrent.TimeoutException;
 
 import static org.shiloh.rabbitmq.constant.RabbitMqConstants.QUEUE_NAME;
 import static org.shiloh.rabbitmq.constant.RabbitMqConstants.Server.*;
-import static org.shiloh.rabbitmq.constant.RabbitMqConstants.Server.PASSWORD;
 
 /**
  * 消费者，用于接收 MQ 中的消息
