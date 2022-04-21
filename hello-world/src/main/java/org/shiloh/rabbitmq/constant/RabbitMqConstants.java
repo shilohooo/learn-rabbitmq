@@ -19,6 +19,11 @@ public final class RabbitMqConstants {
     public static final String QUEUE_NAME = "Hello";
 
     /**
+     * 手动应答队列
+     */
+    public static final String MANUAL_ASK_QUEUE = "ManualAskQueue";
+
+    /**
      * MQ 服务器相关常量
      *
      * @author shiloh
