@@ -45,6 +45,13 @@ public class ManualAskConsumerB {
             // 定义取消消费或消费被中断后的回调处理
             final CancelCallback cancelCallback = consumerTag -> System.out.println(
                     consumerTag + "消费者：" + className + " 取消了消费或消费过程被中断了:(");
+            // 设置不公平分发模式
+            // 默认为0，即采用轮询分发模式
+            // 当 prefetchCount 大于 1 时，表示采用预取值模式，即代表该消费者会收到 prefetchCount 条消息，不论处理速度如何。
+            // 这里设置预取值为 5，表示该消费者会接收到 5 条消息，也可能由于消息处理速度的原因，接收到的消息数量与预取值不一致。
+            // 但该消费者未接收的消息个数不会超过 5 个
+            final int prefetchCount = 5;
+            channel.basicQos(prefetchCount);
             channel.basicConsume(MANUAL_ASK_QUEUE, false, deliverCallback, cancelCallback);
         } catch (IOException | TimeoutException e) {
             throw new RuntimeException(e);
