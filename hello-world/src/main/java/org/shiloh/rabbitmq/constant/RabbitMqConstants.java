@@ -24,6 +24,11 @@ public final class RabbitMqConstants {
     public static final String MANUAL_ASK_QUEUE = "ManualAskQueue";
 
     /**
+     * 日志消息接收交换机名称
+     */
+    public static final String LOG_MSG_EXCHANGE_NAME = "logs";
+
+    /**
      * MQ 服务器相关常量
      *
      * @author shiloh
