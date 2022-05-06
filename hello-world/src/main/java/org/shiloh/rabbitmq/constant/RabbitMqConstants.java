@@ -24,9 +24,14 @@ public final class RabbitMqConstants {
     public static final String MANUAL_ASK_QUEUE = "ManualAskQueue";
 
     /**
-     * 日志消息接收交换机名称
+     * 日志消息接收扇出交换机名称
      */
-    public static final String LOG_MSG_EXCHANGE_NAME = "logs";
+    public static final String LOG_MSG_FANOUT_EXCHANGE_NAME = "logs";
+
+    /**
+     * 直接交换机名称，与扇出交换机的区别是：当各队列的 routingKey 不一样时，消息不会被多个队列所消费
+     */
+    public static final String DIRECT_EXCHANGE_NAME = "direct_logs";
 
     /**
      * MQ 服务器相关常量
