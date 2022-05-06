@@ -34,6 +34,11 @@ public final class RabbitMqConstants {
     public static final String DIRECT_EXCHANGE_NAME = "direct_logs";
 
     /**
+     * 主题交换机名称
+     */
+    public static final String TOPIC_EXCHANGE_NAME = "topic_logs";
+
+    /**
      * MQ 服务器相关常量
      *
      * @author shiloh
