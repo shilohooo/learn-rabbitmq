@@ -1,4 +1,4 @@
-package org.shiloh.rabbitmq.exchange.direct.consumer;
+package org.shiloh.rabbitmq.exchange.direct.producer;
 
 import com.rabbitmq.client.Channel;
 import org.shiloh.rabbitmq.util.RabbitMqUtils;
