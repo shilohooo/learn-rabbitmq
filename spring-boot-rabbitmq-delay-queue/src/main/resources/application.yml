@@ -1,0 +1,7 @@
+spring:
+  # rabbitmq server config
+  rabbitmq:
+    host: 1.12.253.192
+    port: 5672
+    username: shiloh
+    password: Lixiaolei1998#@
