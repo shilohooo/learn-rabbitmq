@@ -39,6 +39,41 @@ public final class RabbitMqConstants {
     public static final String TOPIC_EXCHANGE_NAME = "topic_logs";
 
     /**
+     * 死信队列示例 - 普通交换机名称
+     */
+    public static final String DEAD_QUEUE_NROMAL_EXCHANGE_NAME = "dq_normal_exchange";
+
+    /**
+     * 死信队列示例 - 死信交换机名称
+     */
+    public static final String DEAD_QUEUE_DEAD_EXCHANGE_NAME = "dq_dead_exchange";
+
+    /**
+     * 死信队列示例 - 普通队列名称
+     */
+    public static final String DEAD_QUEUE_NORMAL_QUEUE_NAME = "dq_normal_queue";
+
+    /**
+     * 死信队列示例 - 死信队列名称
+     */
+    public static final String DEAD_QUEUE_DEAD_QUEUE_NAME = "dq_dead_queue";
+
+    /**
+     * 死信队列示例 - 普通交换机与普通队列绑定的 routing key
+     */
+    public static final String DEAD_QUEUE_NORMAL_ROUTING_KEY = "dq_normal_rk";
+
+    /**
+     * 死信队列示例 - 死信交换机与死信队列绑定的 routing key
+     */
+    public static final String DEAD_QUEUE_DEAD_ROUTING_KEY = "dq_dead_rk";
+
+    /**
+     * 死信队列示例 - 普通队列最大长度
+     */
+    public static final int DEAD_QUEUE_NORMAL_QUEUE_MAX_LENGTH = 6;
+
+    /**
      * MQ 服务器相关常量
      *
      * @author shiloh
