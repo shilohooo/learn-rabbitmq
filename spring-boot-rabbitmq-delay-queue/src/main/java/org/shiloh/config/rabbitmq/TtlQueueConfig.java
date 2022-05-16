@@ -57,8 +57,62 @@ public class TtlQueueConfig {
     private static final String DEAD_LETTER_QUEUE_NAME = "delay-dead-letter-queue";
 
     /**
+     * 配置非延迟的队列，该队列的 TTL 时间由生产者指定
+     */
+    private static final String NON_DELAY_QUEUE_NAME = "non-delay-queue";
+
+    /**
+     * 非延迟队列与普通交换机绑定的 routing key
+     */
+    private static final String NON_DELAY_NORMAL_RK = "non-delay-normal-rk";
+
+    /**
+     * 非延迟队列与死信交换机绑定的 routing key
+     */
+    private static final String NON_DELAY_DEAD_LETTER_RK = "non-delay-dead-letter-rk";
+
+    /**
+     * 非延迟队列 - 未配置 TTL 的普通队列
+     *
+     * @return 非延迟队列 Bean
+     * @author shiloh
+     * @date 2022/5/16 22:23
+     */
+    @Bean("nonDelayQueue")
+    public Queue nonDelayQueue() {
+        // 设置参数
+        final Map<String, Object> paramMap = new HashMap<>(3);
+        // 设置死信交换机名称
+        paramMap.put("x-dead-letter-exchange", DEAD_LETTER_EXCHANGE_NAME);
+        // 设置与死信交换机绑定的 routing key
+        paramMap.put("x-dead-letter-routing-key", NON_DELAY_DEAD_LETTER_RK);
+        // 此处无需设置消息存活时间，由生产者指定
+        return QueueBuilder.durable(NON_DELAY_QUEUE_NAME)
+                .withArguments(paramMap)
+                .build();
+    }
+
+    /**
+     * 绑定非延迟队列与普通交换机
+     *
+     * @param queue          非延迟队列 Bean
+     * @param directExchange 普通直接交换机 Bean
+     * @return 绑定关系 Bean
+     * @author shiloh
+     * @date 2022/5/16 22:31
+     */
+    @Bean
+    public Binding nonDelayQueueExchangeBind(@Qualifier("nonDelayQueue") Queue queue,
+                                             @Qualifier("normalDirectExchange") DirectExchange directExchange) {
+        return BindingBuilder.bind(queue)
+                .to(directExchange)
+                .with(NON_DELAY_NORMAL_RK);
+    }
+
+    /**
      * 延迟队列 - 普通交换机配置
      *
+     * @return 普通直接交换机 Bean
      * @author shiloh
      * @date 2022/5/12 23:09
      */
@@ -70,6 +124,7 @@ public class TtlQueueConfig {
     /**
      * 延迟队列 - 死信交换机配置
      *
+     * @return 死信直接交换机 Bean
      * @author shiloh
      * @date 2022/5/12 23:11
      */
@@ -83,6 +138,7 @@ public class TtlQueueConfig {
      * 该队列需要配置 TTL，即消息有效时间
      * 这里设置消息有效时间为：10 秒
      *
+     * @return 普通队列1 Bean
      * @author shiloh
      * @date 2022/5/12 23:12
      */
@@ -105,6 +161,7 @@ public class TtlQueueConfig {
      * 该队列需要配置 TTL，即消息有效时间
      * 这里设置消息有效时间为：40 秒
      *
+     * @return 普通队列2 Bean
      * @author shiloh
      * @date 2022/5/12 23:12
      */
@@ -125,6 +182,7 @@ public class TtlQueueConfig {
     /**
      * 延迟队列 - 死信队列配置
      *
+     * @return 死信队列 Bean
      * @author shiloh
      * @date 2022/5/12 23:18
      */
@@ -137,6 +195,9 @@ public class TtlQueueConfig {
     /**
      * 延迟队列 - 配置普通队列1 与 普通交换机的绑定关系
      *
+     * @param queue          普通队列1 Bean
+     * @param directExchange 普通直接交换机 Bean
+     * @return 绑定关系 Bean
      * @author shiloh
      * @date 2022/5/12 23:22
      */
@@ -151,6 +212,9 @@ public class TtlQueueConfig {
     /**
      * 延迟队列 - 配置普通队列2 与 普通交换机的绑定关系
      *
+     * @param queue          普通队列2 Bean
+     * @param directExchange 普通直接交换机 Bean
+     * @return 绑定关系 Bean
      * @author shiloh
      * @date 2022/5/12 23:22
      */
@@ -165,12 +229,13 @@ public class TtlQueueConfig {
     /**
      * 延迟队列 - 配置死信队列 与 死信交换机的绑定关系
      *
+     * @return 绑定关系 Bean
      * @author shiloh
      * @date 2022/5/12 23:22
      */
     @Bean
     public Binding deadLetterQueue02ExchangeBind(@Qualifier("deadLetterQueue") Queue queue,
-                                             @Qualifier("deadLetterDirectExchange") DirectExchange directExchange) {
+                                                 @Qualifier("deadLetterDirectExchange") DirectExchange directExchange) {
         return BindingBuilder.bind(queue)
                 .to(directExchange)
                 .with(DEAD_LETTER_ROUTING_KEY);
