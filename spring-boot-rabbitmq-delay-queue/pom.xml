@@ -16,53 +16,59 @@
     <java.version>11</java.version>
   </properties>
   <dependencies>
-<!--    rabbitmq starter-->
+    <!--    rabbitmq starter-->
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-amqp</artifactId>
     </dependency>
 
-<!--    web starter-->
+    <!--    web starter-->
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-web</artifactId>
     </dependency>
 
-<!--    test starter-->
+    <!--    test starter-->
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-test</artifactId>
       <scope>test</scope>
     </dependency>
 
-<!--    fastjson-->
+    <!--    fastjson-->
     <dependency>
       <groupId>com.alibaba</groupId>
       <artifactId>fastjson</artifactId>
     </dependency>
 
-<!--    lombok-->
+    <!--    lombok-->
     <dependency>
       <groupId>org.projectlombok</groupId>
       <artifactId>lombok</artifactId>
     </dependency>
 
-<!--    swagger2-->
+    <!--    swagger2-->
     <dependency>
       <groupId>io.springfox</groupId>
       <artifactId>springfox-swagger2</artifactId>
     </dependency>
 
-<!--    swagger-ui-->
+    <!--    swagger-ui-->
     <dependency>
       <groupId>io.springfox</groupId>
       <artifactId>springfox-swagger-ui</artifactId>
     </dependency>
 
-<!--    spring rabbit test-->
+    <!--    spring rabbit test-->
     <dependency>
       <groupId>org.springframework.amqp</groupId>
       <artifactId>spring-rabbit-test</artifactId>
+    </dependency>
+
+    <!--    jaxb-api-->
+    <dependency>
+      <groupId>javax.xml.bind</groupId>
+      <artifactId>jaxb-api</artifactId>
     </dependency>
   </dependencies>
 

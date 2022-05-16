@@ -40,6 +40,7 @@
     <swagger2.version>2.8.0</swagger2.version>
     <swagger-ui.version>2.8.0</swagger-ui.version>
     <spring-rabbit-test.version>2.4.4</spring-rabbit-test.version>
+    <jaxb-api.version>2.3.0</jaxb-api.version>
   </properties>
 
   <!--  dependencyManagement-->
@@ -59,7 +60,7 @@
         <version>${commons-io.version}</version>
       </dependency>
 
-<!--      spring boot dependencies-->
+      <!--      spring boot dependencies-->
       <dependency>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-dependencies</artifactId>
@@ -68,33 +69,40 @@
         <scope>import</scope>
       </dependency>
 
-<!--      fastjson-->
+      <!--      fastjson-->
       <dependency>
         <groupId>com.alibaba</groupId>
         <artifactId>fastjson</artifactId>
         <version>${fastjson.version}</version>
       </dependency>
 
-<!--      swagger2-->
+      <!--      swagger2-->
       <dependency>
         <groupId>io.springfox</groupId>
         <artifactId>springfox-swagger2</artifactId>
         <version>${swagger2.version}</version>
       </dependency>
 
-<!--      swagger-ui-->
+      <!--      swagger-ui-->
       <dependency>
         <groupId>io.springfox</groupId>
         <artifactId>springfox-swagger-ui</artifactId>
         <version>${swagger-ui.version}</version>
       </dependency>
 
-<!--      spring rabbit test-->
+      <!--      spring rabbit test-->
       <dependency>
         <groupId>org.springframework.amqp</groupId>
         <artifactId>spring-rabbit-test</artifactId>
         <version>${spring-rabbit-test.version}</version>
         <scope>test</scope>
+      </dependency>
+
+      <!--      jaxb-api-->
+      <dependency>
+        <groupId>javax.xml.bind</groupId>
+        <artifactId>jaxb-api</artifactId>
+        <version>${jaxb-api.version}</version>
       </dependency>
     </dependencies>
   </dependencyManagement>
