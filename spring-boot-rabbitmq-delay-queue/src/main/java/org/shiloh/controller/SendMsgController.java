@@ -51,12 +51,16 @@ public class SendMsgController {
     public void sendDelayMsgWithSpecificTtl(String msg, String ttlTime) {
         log.info("当前时间：{}，发送一条 TTL 为：{} 毫秒的信息给队列：non-delay-queue，消息内容：{}", new Date(), ttlTime,
                 msg);
-        this.rabbitTemplate.convertAndSend("delay-normal-exchange", "non-delay-normal-rk", msg,
+        this.rabbitTemplate.convertAndSend(
+                "delay-normal-exchange",
+                "non-delay-normal-rk",
+                msg,
                 message -> {
                     // 设置消息存活时间
                     message.getMessageProperties()
                             .setExpiration(ttlTime);
                     return message;
-                });
+                }
+        );
     }
 }
