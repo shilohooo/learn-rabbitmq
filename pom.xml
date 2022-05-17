@@ -35,7 +35,7 @@
     <!--    dependencies version props-->
     <rabbitmq-client.version>5.8.0</rabbitmq-client.version>
     <commons-io.version>2.6</commons-io.version>
-    <spring-boot-dependencies.version>2.3.11.RELEASE</spring-boot-dependencies.version>
+    <spring-boot-dependencies.version>2.3.4.RELEASE</spring-boot-dependencies.version>
     <fastjson.version>1.2.69</fastjson.version>
     <swagger2.version>2.8.0</swagger2.version>
     <swagger-ui.version>2.8.0</swagger-ui.version>
