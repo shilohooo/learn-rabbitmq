@@ -67,11 +67,6 @@ public class TtlQueueConfig {
     private static final String NON_DELAY_NORMAL_RK = "non-delay-normal-rk";
 
     /**
-     * 非延迟队列与死信交换机绑定的 routing key
-     */
-    private static final String NON_DELAY_DEAD_LETTER_RK = "non-delay-dead-letter-rk";
-
-    /**
      * 非延迟队列 - 未配置 TTL 的普通队列
      *
      * @return 非延迟队列 Bean
@@ -85,7 +80,7 @@ public class TtlQueueConfig {
         // 设置死信交换机名称
         paramMap.put("x-dead-letter-exchange", DEAD_LETTER_EXCHANGE_NAME);
         // 设置与死信交换机绑定的 routing key
-        paramMap.put("x-dead-letter-routing-key", NON_DELAY_DEAD_LETTER_RK);
+        paramMap.put("x-dead-letter-routing-key", DEAD_LETTER_ROUTING_KEY);
         // 此处无需设置消息存活时间，由生产者指定
         return QueueBuilder.durable(NON_DELAY_QUEUE_NAME)
                 .withArguments(paramMap)
