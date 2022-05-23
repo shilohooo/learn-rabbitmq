@@ -1,0 +1,14 @@
+spring:
+  # rabbitmq server config
+  rabbitmq:
+    host: 1.12.253.192
+    port: 5672
+    username: shiloh
+    password: Lixiaolei1998#@
+    # 成功将发布消息到交换机后会触发配置的回调方法
+    publisher-confirm-type: correlated
+    # 当消息传递过程中不可达目的地时将消息返回给生产者
+    publisher-returns: true
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
