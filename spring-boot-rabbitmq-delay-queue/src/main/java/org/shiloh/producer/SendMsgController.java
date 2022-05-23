@@ -1,4 +1,4 @@
-package org.shiloh.controller;
+package org.shiloh.producer;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
