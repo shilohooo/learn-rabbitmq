@@ -45,7 +45,8 @@ public class ReceiveLogsDirect2 {
                 final String className = ReceiveLogsDirect2.class.getSimpleName();
                 System.out.println(className + " 接收到的消息为：" + new String(msg.getBody(), UTF_8));
             };
-            channel.basicConsume(QUEUE_NAME, true, deliverCallback, tag -> {});
+            channel.basicConsume(QUEUE_NAME, true, deliverCallback, tag -> {
+            });
         } catch (IOException | TimeoutException e) {
             throw new RuntimeException(e);
         }
